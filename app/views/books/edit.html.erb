@@ -2,27 +2,33 @@
   <div class="container">
   <div class="row">
   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  	<h1>Editing Book</h1>
 
-    <h1>Editing Book</h1>
-    <%= form_with model: @book, local:true do |f| %>
+  	<%= form_for(@book, url: book_path(@book.id)) do |f| %>
 
-  		<form action="/books/35849" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="PtVoJmcUx6F//r45CcMc2DXDZ4AKJ3HE9SCfXxu4uHzJvUIyGik1prWvQ88xuYPlyenvezRr5lxap7WA8b4R3g==">
-  <div class="form-group">
-    <label for="book_title">Title</label>
-    <input class="form-control book_title" type="text" value="a" name="book[title]" id="book_title">
-  </div>
-  <div class="form-group">
-    <label for="book_opinion">Opinion</label>
-    <textarea class="form-control book_body" name="book[body]" id="book_body">a</textarea>
-  </div>
-  <div class="form-group">
-    <input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book">
-  </div>
-</form>
-  		<a class="book_35849" href="/books/35849">Show</a> |
-  		<a class="back" href="/books">Back</a>
-  </div>
-</div>
-      </div></main>
+  	  <div class="form-group">
+      <label for="book_title">Title</label>
+      <input class="form-control book_title" type="text" value="d" name="book[title]" id="book_title">
+      </div>
 
-</body>
+      <div class="form-group">
+      <label for="book_opinion">Opinion</label>
+      <textarea class="form-control book_body" name="book[body]" id="book_body">d</textarea>
+      </div>
+
+      <div class="form-group">
+      <input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book">
+      </div>
+
+      <nav>
+      <%= f.submit 'Update Book',class: "col-xs-12 btn btn-primary" %>
+      </nav>
+
+　  <% end %>
+
+　  <%= link_to "show",book_path(@book.id)%> | <%= link_to "Back",books_path %>
+
+  </div>
+  </div>
+  </div>
+</main>
